@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "massageReview",
+    "style": "scss",
+    "postcss": false
+  }
+}
