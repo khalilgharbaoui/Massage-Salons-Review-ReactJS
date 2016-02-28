@@ -18,7 +18,7 @@ class MassageSalonForm extends React.Component {
 
   AddMassageSalon(event){
     //prevent the default action of the form
-    event.peventDefault();
+    event.preventDefault();
 
     let compo = this;
 
@@ -28,41 +28,47 @@ class MassageSalonForm extends React.Component {
       massage_salon_description: compo.refs.massageSalonDescription.value
 
     }
-//jQuert AJAX API With POST METHODE...
-    jQuery.ajax({
-      type: 'POST',
-      url: 'http:....',
-      contentType: 'application/json',
-      dataType: 'json',
-      data: JSON.stringify({
-      massagesalon: formData
-      })
-    }).done(function(data){
-      //when done let the parent know of the current component know about the change trought the "onChange"
-      compo.props.onChange();
+//jQuert AJAX API With POST METHODE..JSON.
+jQuery.ajax({
+  type: 'POST',
+  url: 'http:....',
+  contentType: 'application/json',
+  dataType: 'json',
+  data: JSON.stringify({
+    massagesalon: formData
+  })
+}).done(function(){
+  //when done let the parent know of the current component know about the change trought the "onChange"
+  compo.props.onChange();
 
 
-    }).fail(function(data){
-// display the error message from the server... maybe
-console.log(data);
-      compo.setState({
+}).fail(function(data, jqXHR, textStatus)
+{
+  // display the error message from the server... maybe
 
-errors: data.statusText
+  compo.setState({
 
-      });
-    });
-  }
+    errors: data.textStatus
+
+  });
+  alert(textStatus);
+});
+
+}
 
   render() {
+
+  
     return (
-      <form onSubmit={this.saveTask.bind(this)}>
+      <form onSubmit={this.AddMassageSalon.bind(this)}>
         <input
           type="text"
           ref="massageSalonName"
           placeholder="Add a Massage Salon" />
         <br />
         <input
-          type="text"
+
+        type="text"
           ref="massageSalonCity"
           placeholder="Massage Salon Location" />
         <br />
