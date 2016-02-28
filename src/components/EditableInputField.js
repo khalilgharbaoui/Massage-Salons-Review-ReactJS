@@ -3,43 +3,48 @@ import React from 'react';
 class EditableInputField extends React.Component {
   constructor() {
     super();
+    this.props = {
+      isEditable: true
+    };
 
     this.state = {
       editing: false,
-      value: ""
+      value: ''
     };
   }
+textChanged(){
 
-  handleKeyPress(event){
-  	if (event.key === "Enter") {
-
-  		var newInput = this.refs.input.value;
-  		this.props.onChange(newInput);
-
-  		this.setState({
-  			editing: false
-  		});
+  this.props.onChange(this.refs.input.value);
+  this.setState({
+    editing: false
+  });
+}
+  handleKeyPress(){
+  	if (event.key === 'Enter' || event.keyCode == 27) {
+        event.target.blur();
   	}
   }
 
-  edit(event){
-    if (this.props.done === false) {
+  setEditable(){
+    if (!this.props.isEditable) {
+      return;
+    }
       this.setState({
     		editing: true
     	});
     }
-  }
+
 
   render() {
 
 
     if (this.state.editing) {
       return (
-        <input ref="input" placeholder={this.props.value} onKeyPress={this.handleKeyPress.bind(this)}/>
+        <input type="text" onBlur={this.textChanged.bind(this)} defaultValue={this.props.value} onKeyUp={this.handleKeyPress.bind(this)}/>
       );
     } else {
       return(
-        <span onClick={this.edit.bind(this)}>{this.props.value}</span>
+        <span onClick={this.setEditable.bind(this)}>{this.props.value}</span>
       );
     }
   }
