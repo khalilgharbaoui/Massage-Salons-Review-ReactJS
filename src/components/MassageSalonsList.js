@@ -2,7 +2,6 @@ require('normalize.css');
 require('styles/App.scss');
 import React from 'react';
 import jQuery from 'jquery';
-import MassageSalonForm from './MassageSalonForm';
 import MassageSalonListItem from './MassageSalonListItem';
 
 class MassageSalonsList extends React.Component {
@@ -32,7 +31,7 @@ class MassageSalonsList extends React.Component {
   render() {
     return (
       <div>
-        <MassageSalonForm/>
+<h1>List of Massage Salons</h1>
         {this.state.massagesalons.map(function(massagesalon) {
           return (
             <MassageSalonListItem
