@@ -104,7 +104,7 @@ let massageSalonId = this.props.id
 
     //changing "this" to "compo" to fix in memory
     let compo = this;
-    let massagesalonId = this.props.id
+    let massageSalonId = this.props.params.massageSalonId
 
     jQuery.ajax({
       methode: 'DELETE',
