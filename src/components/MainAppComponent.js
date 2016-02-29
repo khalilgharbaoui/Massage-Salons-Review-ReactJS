@@ -12,13 +12,11 @@ class MainAppComponent extends React.Component {
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/welcome">Welcome</Link></li>
-                <li><Link to="/massagesalons">Massage Salons</Link></li>
+                <li><Link to="/massagesalons">Massage List</Link></li>
                 <li><Link to="/add-new-massage-salon">Add New Massage Salon</Link></li>
               </ul>
             </nav>
-      <h1>Hello World</h1>
-
-      {this.props.children}
+    {this.props.children}
     </div>
 
     );

@@ -8,6 +8,7 @@ import PageNotFound from './components/PageNotFound';
 import Welcome from './components/Welcome';
 import MassageSalonsList from './components/MassageSalonsList';
 import AddNewMassageSalon from './components/AddNewMassageSalon';
+import MassageSalon from './components/MassageSalon';
 
 
 // Render the main component into the dom
@@ -17,7 +18,9 @@ ReactDOM.render((
     <Route path="/" component={App}>                           // everything will be under the `App` component
       <IndexRoute component={Welcome} />                       // the `Welcome` component will be rendered on `/`
       <Route path="/massagesalons" component={MassageSalonsList}/>
-      <Route path="/add-new-massage-salon" component={AddNewMassageSalon}/>                  // the `About` component will be rendered on `/about`
+        <Route path="/massagesalon/:massageSalonId" component={MassageSalon}/>  // the `Project` component will be rendered on `/project/id`
+
+    <Route path="/add-new-massage-salon" component={AddNewMassageSalon}/>
 
       {/*
       <Route path="/projects" component={Projects}/>           // the `Projects` component will be rendered on `/projects`
