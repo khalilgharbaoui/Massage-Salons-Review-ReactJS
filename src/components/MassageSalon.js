@@ -15,7 +15,8 @@ class MassageSalon extends React.Component{
     renderMassageSalon(){
       // we want to set the state to the massagesalon with corresponding id from the backend
 let compo = this;
-let massageSalonId = this.props.id
+// fetch is from url? react-router.... params
+let massageSalonId = this.props.params.massageSalonId
 
       jQuery.getJSON(`https://massagereviews.herokuapp.com/massagesalons/${massageSalonId}`,
         function(data){
@@ -33,8 +34,9 @@ let massageSalonId = this.props.id
       return(
         <div>
         <h1>Massage Salon:</h1>
-       {this.state.massagesalon.massage_salon_name}
-        {this.state.massagesalon.massage_salon_description}
+       <strong>Massage Salon Name:</strong>  {this.state.massagesalon.massage_salon_name}<br />
+        <strong>Massage Salon Description:</strong>  {this.state.massagesalon.massage_salon_description}<br />
+        <strong>Massage Salon id:</strong>  {this.state.massagesalon.id}<br />
         </div>
       );
     }

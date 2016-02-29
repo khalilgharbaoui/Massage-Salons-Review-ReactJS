@@ -140,11 +140,10 @@ render(){
   let massageSalonId = this.props.id
   return(
     <div className={this.getClassName()}>
-    <Link to={`/massagesalon/${massageSalonId}`}> > </Link>
-    Name: <EditableInputField value={this.state.massage_salon_name} onChange={this.updateMassageSalonName.bind(this)} isEditable={!this.state.completed} />|<br />
-    Description: <EditableInputField value={this.state.massage_salon_description} onChange={this.updateMassageSalonDescription.bind(this)} isEditable={!this.state.completed} />|<br />
-    City: <EditableInputField value={this.state.massage_salon_city} onChange={this.updateMassageSalonCity.bind(this)} isEditable={!this.state.completed} />|<br />
-  <button href="#" onClick={this.removeMassageSalon.bind(this)}>❌</button>
+    Name: <EditableInputField value={this.state.massage_salon_name} onChange={this.updateMassageSalonName.bind(this)} isEditable={!this.state.completed} /><br />
+    Description: <EditableInputField value={this.state.massage_salon_description} onChange={this.updateMassageSalonDescription.bind(this)} isEditable={!this.state.completed} /><br />
+    City: <EditableInputField value={this.state.massage_salon_city} onChange={this.updateMassageSalonCity.bind(this)} isEditable={!this.state.completed} /><br />
+  <Link to={`/massagesalon/${massageSalonId}`}> 👁 </Link> | <button href="#" onClick={this.removeMassageSalon.bind(this)}>❌</button>
     </div>
 
 
