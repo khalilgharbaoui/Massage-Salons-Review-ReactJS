@@ -16,7 +16,7 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>                           // everything will be under the `App` component
       <IndexRoute component={Welcome} />                       // the `Welcome` component will be rendered on `/`
-      <Route path="/massage-salons" component={MassageSalonsList}/>
+      <Route path="/massagesalons" component={MassageSalonsList}/>
       <Route path="/add-new-massage-salon" component={AddNewMassageSalon}/>                  // the `About` component will be rendered on `/about`
 
       {/*

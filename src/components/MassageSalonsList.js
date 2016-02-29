@@ -21,7 +21,7 @@ class MassageSalonsList extends React.Component {
 
     //let massageSalonId = compo.props.id
     //JSON API
-    jQuery.getJSON('https://massagesalonsreview.heroku.com/', //massageSalonId
+    jQuery.getJSON('https://massagereviews.herokuapp.com/massagesalons.json',
         function(data) {
       compo.setState({massagesalons: data.massagesalons});
     });
@@ -36,7 +36,7 @@ class MassageSalonsList extends React.Component {
           return (
             <MassageSalonListItem
               key={massagesalon.id}
-              massageSalonId={massagesalon.id}
+              id={massagesalon.id}
               massageSalonName={massagesalon.massage_salon_name}
               massageSalonDescription={massagesalon.massage_salon_description}
               massageSalonCity={massagesalon.massage_salon_city}

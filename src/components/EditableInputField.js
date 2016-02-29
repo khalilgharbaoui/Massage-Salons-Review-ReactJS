@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class EditableInputField extends React.Component {
   constructor() {
     super();
@@ -19,7 +20,7 @@ textChanged(){
     editing: false
   });
 }
-  handleKeyPress(){
+  handleKeyPress(event){
   	if (event.key === 'Enter' || event.keyCode == 27) {
         event.target.blur();
   	}
@@ -40,7 +41,7 @@ textChanged(){
 
     if (this.state.editing) {
       return (
-        <input type="text" onBlur={this.textChanged.bind(this)} defaultValue={this.props.value} onKeyUp={this.handleKeyPress.bind(this)}/>
+        <input defaultValue={this.props.value} ref="input" type="text" onBlur={this.textChanged.bind(this)} onKeyUp={this.handleKeyPress.bind(this)}/>
       );
     } else {
       return(
